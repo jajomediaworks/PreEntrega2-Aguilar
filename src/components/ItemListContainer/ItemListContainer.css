@@ -1,0 +1,8 @@
+h1{font-size: 4rem;}
+.box-content{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 160px);
+}

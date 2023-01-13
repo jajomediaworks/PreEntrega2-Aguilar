@@ -1,20 +1,25 @@
 import CardWidget from "./CardWidget"
+import NavItem from "./NavItem";
+import { Link } from "react-router-dom";
 import "./navbar.css"
 
 
 function navBar(props) {
-
+    const links = [ 
+       { category: "home", url: "/home"}, 
+       { category: "Afeitado", url: "/afeitado"}, 
+       { category: "Barba", url: "/barba"}, 
+       { category: "Cabello", url: "/cabello"}, 
+       { category: "Cuerpo", url: "/cuerpo"}, 
+    ]
+    // 051 minuto
     return( 
             <header>
                 <nav className="navbar">
-                    <div className="logo"><img width={140} src="https://jajomedia.com/desafios/Proyecto_Final_Coder/img/Logo_Barber.svg" alt="" /></div>
+                    <NavItem><Link to="/"><div className="logo"><img width={140} src="https://jajomedia.com/desafios/Proyecto_Final_Coder/img/Logo_Barber.svg" alt="" /></div></Link> </NavItem>
                     <ul className="nav-item">
-                        <li><a className="nav-link" href="/">Home</a></li> 
-                        <li><a className="nav-link" href="/">Afeitado</a></li> 
-                        <li><a className="nav-link" href="/">Barba</a></li> 
-                        <li><a className="nav-link" href="/">Cabello</a></li> 
-                        <li><a className="nav-link" href="/">Cuerpo</a></li> 
-                        <li><a className="nav-link" href="/"><CardWidget /></a></li> 
+                        <Link to="/detalle" className="nav-link">Detalle</Link>
+                        <Link className="nav-item"><CardWidget /></Link> 
                     </ul>
                 </nav>
             </header>

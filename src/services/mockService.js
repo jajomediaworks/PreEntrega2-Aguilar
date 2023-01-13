@@ -1,7 +1,7 @@
 const dataProduct = [
     {
         id:	1,
-        detail:	"Jab�n Limpieza Facial y Cuerpo The Grandpa Soap Co Carb�n Activado Desintoxicante 4.25 oz",
+        detail:	"Jabón Limpieza Facial y Cuerpo The Grandpa Soap Co Carb�n Activado Desintoxicante 4.25 oz",
         imgurl:"https://cdn.shopify.com/s/files/1/0079/2556/3489/products/1_a71a8aa8-8fbc-410f-8059-33b71aff980b_1024x1024@2x.jpg?v=1635626763",
         title:	"THE GRANDPA SOAP CO",
         amount:1,
@@ -33,7 +33,7 @@ const dataProduct = [
         title:	"FISTICUFFS",
         amount:	1,
         category: "Afeitado",
-        price:	6.000,
+        price:	6000,
     },
     {
         id:	5,
@@ -42,36 +42,38 @@ const dataProduct = [
         title:	"MEL BROS CO",
         amount:	4,
         category: "Barba",
-        price:	88.900,
+        price:	88900,
     },
     {
         id:	6,
         detail:	"Shampoo Para Barba Mel Bros Co Aceites Esenciales 230 ml",
         imgurl:	"https://cdn.shopify.com/s/files/1/0079/2556/3489/products/shampoo-para-barba-mel-bros-co-aceites-esenciales-230-ml-761_1024x1024@2x.jpg?v=1609007585",
-        title:	"88900",
+        title:	"MEL BROS CO",
         amount:	2,
         category: "Cabeza",
-        price:	88.900,
+        price:	88900,
     }
     ];
   
   const obtenerProductos = () => {
     return new Promise((resolve, reject) => {
   console.log("Conneting to backend...");
-  
-  let error = false;
-  
+
       setTimeout(() => {
-        error ? reject("Usuario no autorizado") : resolve(dataProduct);
+        resolve(dataProduct);
       }, 2000);
     });
   };
 
+  const getProduct = (idURL) => {
+    return new Promise((resolve, reject) => {
+     const reqItem = dataProduct.find(( item )=> { 
+      console.log(item.id, idURL)
+      return  ( item.id === parseInt(idURL)  ) })
+     
 
-  const getProduct = () => {
-    return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(dataProduct[0]);
+        reqItem ? resolve(reqItem) : reject("No se encontrol el producto")
       }, 2000);
     });
   };

@@ -1,0 +1,14 @@
+
+.card-product {
+    display: flex;
+    flex-direction: column;
+    margin:16px 8px;
+    padding: .75rem .85rem;
+    border-radius: 8px;
+    border: 1px solid #acacac;
+    background-color: #fff;
+    text-align: center;
+    width: 320px;
+}
+
+h3{margin: 0; line-height: 2rem; font-size: 1.2rem;}

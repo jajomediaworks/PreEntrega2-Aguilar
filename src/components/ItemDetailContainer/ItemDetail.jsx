@@ -9,6 +9,7 @@ function ItemDetail({ id, detail, imgurl, title, amount, category, price }) {
             <h3>$ { price }</h3>
             <h4>Cantidad disponible { amount }</h4>
             <small> SKU { id }</small>
+            <small> { category }</small>
             <p>{ detail }</p>
             <hr />
         </div>

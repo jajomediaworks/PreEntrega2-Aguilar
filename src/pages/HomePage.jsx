@@ -5,7 +5,7 @@ import ItemListContainer from "../components/ItemListContainer/ItemListContainer
 function HomePage(params) {
     return (
         <div>
-            <h1>home Page</h1>
+            <h1>Home Page</h1>
             <ItemListContainer />
         </div>
     )

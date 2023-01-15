@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import "./button.css" // Al importar el css siempre con la extension .css
 
 function Button (props) {
-    const [colorState, setColorState ] = useState("orange") // Esta es una funcio que modifica la variable let styleButton - ("orange") El valor por defecto del estado
+    const [colorState, setColorState ] = useState("black") // Esta es una funcio que modifica la variable let styleButton - ("orange") El valor por defecto del estado
 
     // Aplicar estilos alos botones mendiate props
     let styleButton = {
-        padding: props.padding,
+        // padding: props.padding,
         backgroundColor: colorState,
     }
 

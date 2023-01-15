@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 function Item (props) {
 
-    const { id, imgurl, title, amount, price, detail, category } = props.product
+    const { id, imgurl, title, amount, price, category } = props.product
 
     return ( // Buena practica el return con parentisis - no se puede retornar 2 elementos, solo puedo tener un padre
     // <> Fragmento o etiqueta vacia para agrupar elementos para que ebn el html no haya div innecesarios
@@ -17,9 +17,8 @@ function Item (props) {
                 <h4>Cantidad disponible { amount }</h4>
                 <small> SKU { id }</small>
                 <span>Categoria: { category }</span>
-                <p>{ detail }</p>
                 <hr />`
-                <Link to={`/detalle/${id}`}><Button padding=".75rem">Agragar al carrito</Button></Link> 
+                <Link to={`/detalle/${id}`}><Button padding=".75rem">Ver más</Button></Link> 
             </div>
         </>
     );

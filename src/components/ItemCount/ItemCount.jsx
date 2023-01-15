@@ -16,13 +16,18 @@ function ItemCount(props) {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        margin: "0 auto",
+        padding: "6px",
+        width: "40%",
+        border: "1px solid #000",
     }
     return(
         <>
             <div style={styleCount}>
-                <button  disabled={ count === props.stock } onClick={ handleAdd } className="btn">+</button>
+                <button disabled={ count === 0 } onClick={ handleSubs }  className="btn-count">-</button>
                     <p>{count}</p>
-                <button disabled={ count === 0 } onClick={ handleSubs }  className="btn">-</button>
+                <button  disabled={ count === props.stock } onClick={ handleAdd } className="btn-count">+</button>
+
             </div>
         </>
     )

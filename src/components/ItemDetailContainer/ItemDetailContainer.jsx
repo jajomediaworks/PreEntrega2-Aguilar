@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import { getProduct } from "../../services/mockService"
-import ItemCount from "../ItemCount/ItemCount";
 
 function ItemDetailContainer() {
     const [ productBarber, setProductBarber] = useState([]);
@@ -27,7 +26,7 @@ function ItemDetailContainer() {
             category={productBarber.category}
             detail={productBarber.detail}
              / >
-            <ItemCount stock={7}  />
+            
             </>
         );
    

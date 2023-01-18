@@ -33,3 +33,8 @@
     border: 1px solid #d8d8d8;
     opacity: .5; 
 }
+
+.item-count-cart{
+    margin: .75rem .45rem;
+    text-align: center;
+}

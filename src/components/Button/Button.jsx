@@ -10,16 +10,9 @@ function Button (props) {
         backgroundColor: colorState,
     }
 
-    function handleClick(event) {
-        console.log("evento click");
-        setColorState("red"); // Para ejecutar el estado del evento necesitamos el hook State
-
-    }
 
     return (
-        <button onClick={ handleClick } 
-        style={styleButton} className="btn">{ props.children }
-        </button>
+        <button onClick={props.onClick}   style={styleButton} className="btn">{ props.children } </button>
     )
 }
 

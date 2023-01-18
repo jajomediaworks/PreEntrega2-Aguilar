@@ -2,17 +2,15 @@ import CardWidget from "./CardWidget"
 import NavItem from "./NavItem";
 import { Link } from "react-router-dom";
 import "./navbar.css"
+import Button from "../Button/Button";
 
-
+// Video o1:28
 function navBar(props) {
-    // const links = [ 
-    //    { category: "home", url: "/home"}, 
-    //    { category: "Afeitado", url: "/afeitado"}, 
-    //    { category: "Barba", url: "/barba"}, 
-    //    { category: "Cabello", url: "/cabello"}, 
-    //    { category: "Cuerpo", url: "/cuerpo"}, 
-    // ]
-    // 051 minuto
+    function handleSubmit(event) {
+        event.preventDefault();
+        let user = event.target.elements[0].value;
+        props.onLogin(user)
+    }
     return( 
             <header>
                 <nav className="navbar">
@@ -23,7 +21,13 @@ function navBar(props) {
                         <Link to="/category/Barba" className="nav-link" >Barba</Link>
                         <Link to="/category/Afeitado" className="nav-link">Afeitado</Link>
                         <Link to="/category/Cabeza" className="nav-link">Cabeza</Link>
-                        <Link className="nav-item"><CardWidget /></Link> 
+                        <Link className="nav-item"><CardWidget /></Link>
+
+                        <Button onClick={props.onLogout}>Log Out</Button> 
+                        <form onSubmit={handleSubmit} action="">
+                            Iniciar sesión
+                            <input name="user" type="text" />
+                        </form>
                     </ul>
                 </nav>
             </header>

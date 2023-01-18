@@ -2,6 +2,11 @@ import ItemCount from "../ItemCount/ItemCount";
 import "./detail.css"
 
 function ItemDetail({ id, detail, imgurl, title, amount, category, price }) {
+
+    function handleAddToCart(count) {
+        console.log(`Agregaste al carrito ${count} unidades del producto ${title}`);
+    }
+
     return(
         <> 
         <div className="content-product">
@@ -16,7 +21,7 @@ function ItemDetail({ id, detail, imgurl, title, amount, category, price }) {
                 <small>Categoria: { category }</small>
                 <p>{ detail }</p>
                 <hr />
-                <ItemCount />
+                <ItemCount onAddToCart={handleAddToCart} />
             </div>
         </div>
     </>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../Button/Button";
 
 
-function ItemCount(props) {
+function ItemCount({ onAddToCart }) {
    const [ count, setCount] = useState(1);
 //    let stock = 5;
 
@@ -27,10 +27,10 @@ function ItemCount(props) {
             <div style={styleCount}>
                 <Button disabled={ count === 0 } onClick={ handleSubs }  className="btn-count">-</Button>
                     <p>{count}</p>
-                <Button  disabled={ count === props.stock } onClick={ handleAdd } className="btn-count">+</Button>
+                <Button  onClick={ handleAdd } className="btn-count">+</Button>
             </div>
             <div className="item-count-cart">
-                <Button className="btn">Agregar al carrito</Button>
+                <Button onClick={()=> onAddToCart(count)} className="btn">Agregar al carrito</Button>
             </div>
         </>
     )

@@ -1,11 +1,24 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext,  } from "react"
 import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
 import { getProduct } from "../../services/mockService"
+import { cartContext } from "../../storage/cartContext";
+import ItemDetail from "./ItemDetail";
+
+
 
 function ItemDetailContainer() {
-    const [ productBarber, setProductBarber] = useState([]);
+
+    // const [ productBarber, setProductBarber] = useState([]);
+    const [ productBarber, setProductBarber] = useState( { title: "loading", price: "--,--" } );
+
     let params = useParams(); // Siempre se tiene que ejecutar y ubicarse en el cuerpo del componente
+    const { addToCart } = useContext(cartContext); // no se puede colocar un hook dentro de una funtion
+
+    function handleAddToCart(count) {
+        const barberAndCount = { ...productBarber, count: count}
+        addToCart(barberAndCount);
+    }
+
   
         useEffect( () => {
             getProduct(params.itemid)
@@ -18,6 +31,7 @@ function ItemDetailContainer() {
         return(
             <>
             <ItemDetail  
+            onAddToCart={handleAddToCart}
             title={productBarber.title} 
             imgurl={productBarber.imgurl}
             price={productBarber.price}

@@ -1,11 +1,18 @@
+import React, { useContext } from "react";
+
 import CardWidget from "./CardWidget"
 import NavItem from "./NavItem";
 import { Link } from "react-router-dom";
 import "./navbar.css"
 import Button from "../Button/Button";
+import { cartContext } from "../../storage/cartContext";
 
 // Video o1:28
 function navBar(props) {
+    const context = useContext( cartContext );
+   context.test();
+
+
     function handleSubmit(event) {
         event.preventDefault();
         let user = event.target.elements[0].value;

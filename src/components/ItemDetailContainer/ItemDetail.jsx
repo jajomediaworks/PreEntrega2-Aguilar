@@ -1,11 +1,11 @@
+import Button from "../Button/Button";
 import ItemCount from "../ItemCount/ItemCount";
 import "./detail.css"
 
-function ItemDetail({ id, detail, imgurl, title, amount, category, price }) {
+function ItemDetail({ id, detail, imgurl, title, amount, category, price, onAddToCart }) {
+    // const [ countInCart, setCountInCart ] = useState();
 
-    function handleAddToCart(count) {
-        console.log(`Agregaste al carrito ${count} unidades del producto ${title}`);
-    }
+
 
     return(
         <> 
@@ -21,7 +21,10 @@ function ItemDetail({ id, detail, imgurl, title, amount, category, price }) {
                 <small>Categoria: { category }</small>
                 <p>{ detail }</p>
                 <hr />
-                <ItemCount onAddToCart={handleAddToCart} />
+                <ItemCount onAddToCart={onAddToCart} />
+                <a href="/cart">
+                    <Button>Ir al carrito</Button>
+                </a>
             </div>
         </div>
     </>

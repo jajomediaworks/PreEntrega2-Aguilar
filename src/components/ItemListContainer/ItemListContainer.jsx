@@ -3,6 +3,7 @@ import "./ItemListContainer.css"
 import Item from "./Item";
 import obtenerProductos, { getProductByCategory } from "../../services/mockService";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 function ItemListContainer(props) {
     const [ barber, setBarber] = useState([]);
@@ -32,7 +33,7 @@ function ItemListContainer(props) {
     
     // 2. return con if ternario / early return
     if (isLoading) {
-        return <h3>Cargando...</h3>
+        return <Loader />
     } else{
       return(
       <div className="card-products">

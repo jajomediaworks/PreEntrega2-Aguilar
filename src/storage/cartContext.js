@@ -29,7 +29,6 @@ function addToCart(item) {
     let newCart = [...cart]
     newCart.push(item);
     setCart(newCart)
-
      Opcion B
     setCart([...cart, item]); */
 

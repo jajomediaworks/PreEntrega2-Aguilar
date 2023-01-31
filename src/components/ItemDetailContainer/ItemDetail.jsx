@@ -1,8 +1,9 @@
 import Button from "../Button/Button";
 import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 import "./detail.css"
 
-function ItemDetail({ id, detail, imgurl, title, amount, category, price, onAddToCart }) {
+function ItemDetail({ id, detail, imgurl, title, amount, category, price, onAddToCart, isInCart }) {
     // const [ countInCart, setCountInCart ] = useState();
 
 
@@ -21,10 +22,13 @@ function ItemDetail({ id, detail, imgurl, title, amount, category, price, onAddT
                 <small>Categoria: { category }</small>
                 <p>{ detail }</p>
                 <hr />
-                <ItemCount onAddToCart={onAddToCart} />
-                <a href="/cart">
+                {/* De forma condicional ocultar el itemcard 1:52 */}
+                { isInCart ? (
+                <Link to="/cart">
                     <Button>Ir al carrito</Button>
-                </a>
+                </Link>
+                ) : (<ItemCount onAddToCart={onAddToCart} />) }
+                
             </div>
         </div>
     </>

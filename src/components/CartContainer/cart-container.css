@@ -1,0 +1,11 @@
+.cart-container{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.cart-table {width: 100%; margin: 3.5rem 0; padding: 1.6rem; border: 1px solid #000;}
+
+.cart-table tbody tr:not(:nth-last-child(odd)) td{border-bottom: 1px solid rgb(153, 153, 153);}
+.cart-table tbody td{padding: 1.2rem .45rem;}
+.cart-table tbody td:nth-child(n+3){text-align: center;}
+.cart-table tbody td img{box-shadow: 0 4px 24px -8px #b7b7b7; border-radius: .45rem;}

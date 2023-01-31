@@ -28,7 +28,7 @@ function navBar(props) {
                         <Link to="/category/Barba" className="nav-link" >Barba</Link>
                         <Link to="/category/Afeitado" className="nav-link">Afeitado</Link>
                         <Link to="/category/Cabeza" className="nav-link">Cabeza</Link>
-                        <Link className="nav-item"><CardWidget /></Link>
+                        <Link to="/cart" className="nav-item"><CardWidget /></Link>
 
                         <Button onClick={props.onLogout}>Log Out</Button> 
                         <form onSubmit={handleSubmit} action="">

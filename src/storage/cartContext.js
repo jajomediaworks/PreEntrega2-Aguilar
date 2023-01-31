@@ -19,6 +19,9 @@ function addToCart(item) {
         newCart.push(item);
         setCart(newCart);
     }
+
+}   
+
     // Operador spread ...
     //Array.map
 
@@ -29,39 +32,42 @@ function addToCart(item) {
 
      Opcion B
     setCart([...cart, item]); */
+
+
+    function removeItem(itemid) {
+
+    }
+
 /*     function clear() {
         //
-      }
-    
-      function getTotalItemsInCart() {
+    }
+*/
+    function getTotalItemsInCart() {
         // reduce 👌
-    
+
         let total = 5;
         // por Cada producto(for, forEach) -> total += producto.count
         return cart.length;
-      }
+    } 
 
-      function getTotalPriceInCart() {
-        return 1000;
-      }
+    function getTotalPriceInCart() {
+        let total = 1500
+        return total;
+    }
 
-    function removeItem(itemid) {
+   /*  function removeItem(itemid) {
         // splice + findIndex
         let removed = cart.find( (prod) => prod.id === itemid)
         let removeItemCard = cart.indexOf(removed);
         cart.splice(removeItemCard, 1)
-      } */
+      } 
+ */
     
-
-    
-
-}    
-
     return(
-        <cartContext.Provider value={ { cart, test, addToCart } }>
+        <cartContext.Provider value={ { cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart,  removeItem} }>
             {props.children}
         </cartContext.Provider>
-    )
+    );
 }
 
 export { CartProvider }

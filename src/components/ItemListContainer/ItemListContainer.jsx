@@ -1,23 +1,31 @@
 import { useEffect, useState } from "react";
 import "./ItemListContainer.css"
 import Item from "./Item";
-import obtenerProductos, { getProductByCategory } from "../../services/mockService";
+import { getProductByCategory } from "../../services/firebase";
+import { getProducts } from "../../services/firebase";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import "./alert.css"
 
 function ItemListContainer(props) {
     const [ barber, setBarber] = useState([]);
     const [ isLoading, setLoading ] = useState(true);
+    const [ alertText, setAlertText] = useState()
     let { categoryid } = useParams() // Destructuring
 
-
+//
     useEffect(()=> {
       if (!categoryid) {
-        obtenerProductos()
+        getProducts()
           .then((respuesta) => {
             setBarber(respuesta);
           })
-          .catch((error) => alert(error))
+          .catch((error) => {
+            setAlertText({ 
+              text: "No cargaron los productos", 
+              type: "success"} 
+              ) // hacer un context para mensajes de error, notificaciones
+          } )
           .finally( () => setLoading(false))
       } else{
           getProductByCategory(categoryid)
@@ -33,14 +41,18 @@ function ItemListContainer(props) {
     
     // 2. return con if ternario / early return
     if (isLoading) {
-        return <Loader />
+        return <Loader color="orange" />
     } else{
       return(
-      <div className="card-products">
-          { barber.map( (itemIterado)=> {
-                  return <Item key={itemIterado.id} product={itemIterado} />
-          } ) }
-      </div> )
+        <>
+        { alertText && <div className={`alert alert-${alertText.type}`}>{alertText.text}</div> }
+        <div className="card-products">
+            { barber.map( (itemIterado)=> {
+                    return <Item key={itemIterado.id} product={itemIterado} />
+            } ) }
+        </div>
+      </> 
+      )
     }
     // 1. Operador ternario
 /*     return(

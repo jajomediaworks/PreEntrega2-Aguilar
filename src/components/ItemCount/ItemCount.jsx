@@ -3,13 +3,13 @@ import Button from "../Button/Button";
 
 
 function ItemCount({ onAddToCart }) {
-   const [ count, setCount] = useState(1);
+   const [ count, setCount] = useState(0);
 //    let stock = 5;
 
-    function handleAdd(params) {
+    function handleAdd() {
         setCount( count +1 )
     }
-    function handleSubs(params) {
+    function handleSubs() {
         setCount( count -1 )
     }
 

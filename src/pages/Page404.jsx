@@ -10,7 +10,7 @@ function Page404() {
 
     return (
         <>
-        <div>Pagina no encontrada</div>
+        <div>Pagina no encontrada 404</div>
         <small>Te estamos redirigiendo a la homepage</small>
         </>
     )

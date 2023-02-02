@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, getDoc, doc, where, query, addDoc, orderBy } from "firebase/firestore"; // Conectarnos a la base de datos
 // Colletion: hacemos un llamado a la collettion o referencia en firebase
 // getDosc: llamado a los products  o productos de nuestra colletion en firebase
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDu6ky1_2PXruv70GyV1xYQwTvKtAhnbIM",
   authDomain: "ecommerce-react-af1e6.firebaseapp.com",

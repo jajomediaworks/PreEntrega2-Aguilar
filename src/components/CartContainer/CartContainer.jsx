@@ -1,25 +1,25 @@
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useCartContext } from "../../storage/cartContext";
+// import { useNavigate } from "react-router-dom";
 import { createOrder } from "../../services/firebase";
-import { cartContext } from "../../storage/cartContext";
 import Button from "../Button/Button";
+import FormCheckout from "../FormCheckout/FormCheckout";
 import "./cart-container.css"
 
 
 function CartContainer() {
-    const {cart, removeItem, getTotalPriceInCart } = useContext(cartContext);
-    const navigate = useNavigate();
+    const [orderId, setOrderId] = useState();
 
-    function handleCheckout(event) {
+    const {cart, removeItem, getTotalPriceInCart } = useCartContext();   
+    // const navigate = useNavigate();
+
+    function handleCheckout(event, userData) {
+        event.preventDefault(); 
         // const items = cart.map( item => ( { id: item.id, price: item.price, count: item.count, title: item.title} ) )  // ( { retornar un objeto del carrito} )
        // ejemplo destructuring 
         const items = cart.map( ({id, price, title, count}) => ( { id, price, title, count} ) ) 
         const order = { // Datos del usuario
-            buyer:{
-                name: "Jair",
-                email: "info@jajomedia.com",
-                phone: 301465845
-            },
+            buyer: userData,
             items: items,
             total: getTotalPriceInCart(),
             date: new Date()
@@ -41,11 +41,24 @@ function CartContainer() {
         // });
 
         // opcion Redirecionar
-        createOrder(order).then( id => {
-            navigate(`/thank-you/${id}`)
-        } )
+        // createOrder(order).then( id => {
+        //     navigate(`/thank-you/${id}`)
+        // } )
+        async function sendOrder() {
+            let id = await createOrder(order);
+            setOrderId(id);
+          }
+          sendOrder();
+        }
+      
+        if (orderId)
+          return (
+            <div>
+              <h1>Gracias por tu compra</h1>
+              <p>El id de tu compra {orderId}</p>
+            </div>
+          );
 
-    }
 
     return(
             <>
@@ -78,13 +91,13 @@ function CartContainer() {
                         </table>  
                                 <p>El total de tu compra es de: ${getTotalPriceInCart()}</p>
                                 <Button>Vaciar Carrito</Button>
-                                <Button onClick={handleCheckout}>Finalizar Compra</Button>
+                                <FormCheckout onCheckout={handleCheckout} />
                 </div>
                 
                 </div>        
 
             </>
-    )
+    );
 }
 
 export default CartContainer;

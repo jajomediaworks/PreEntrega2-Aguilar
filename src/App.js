@@ -33,6 +33,8 @@ function App() {
                        <Route path='*' element={ <Page404 /> }></Route>
                       {/* <Route path='/thank-you/:orderid' element={ <h1>GRacias por tu compra</h1>}></Route> */}
                       <Route path="/thank-you" element={ <h1>GRacias por tu compra</h1>}></Route>
+                      {/* <Route path="/form-checkout" element={ <FormCheckout /> }></Route> */}
+
                   </Routes>
               </BrowserRouter>
           </CartProvider>    

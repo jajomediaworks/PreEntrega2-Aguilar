@@ -33,37 +33,50 @@ function addToCart(item) {
     setCart([...cart, item]); */
 
 
-    function removeItem(itemid) {
+/*     function removeItem(itemid) {
 
-    }
+    } */
 
 /*     function clear() {
         //
     }
 */
+    function getTotalPriceCant(items) {
+            // let totalPriceCantCart = cart.reduce((acc, product) => acc + product.count * product.price, 0);
+            // return totalPriceCantCart;
+    }
     function getTotalItemsInCart() {
         // reduce 👌
+        
 
         let total = 5;
         // por Cada producto(for, forEach) -> total += producto.count
+        cart.forEach(element => {
+            
+        });
         return cart.length;
     } 
 
     function getTotalPriceInCart() {
-        let total = 1500
-        return total;
+        let totalItemCart = cart.reduce((acc, prod) => acc + prod.count * prod.price, 0)
+        return totalItemCart;
     }
 
-   /*  function removeItem(itemid) {
+     function removeItem(itemid) {
+
+        let index = cart.findIndex((idItem) => idItem.id === itemid);
+        cart.splice(index, -1)
+        return console.log(index, "-----preuba")
         // splice + findIndex
-        let removed = cart.find( (prod) => prod.id === itemid)
+/*         let removed = cart.find( (prod) => prod.id === itemid)
         let removeItemCard = cart.indexOf(removed);
-        cart.splice(removeItemCard, 1)
+        cart.splice(removeItemCard, 0)
+        return console.log(removeItemCard, "-------");  */
       } 
- */
+ 
     
     return(
-        <cartContext.Provider value={ { cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart,  removeItem} }>
+        <cartContext.Provider value={ { cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart,  removeItem, getTotalPriceCant} }>
             {props.children}
         </cartContext.Provider>
     );

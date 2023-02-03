@@ -10,7 +10,7 @@ import "./cart-container.css"
 function CartContainer() {
     const [orderId, setOrderId] = useState();
 
-    const {cart, removeItem, getTotalPriceInCart } = useCartContext();   
+    const {cart, removeItem, getTotalPriceInCart,getTotalPriceCant } = useCartContext();   
     // const navigate = useNavigate();
 
     function handleCheckout(event, userData) {
@@ -41,7 +41,7 @@ function CartContainer() {
         // });
 
         // opcion Redirecionar
-        // createOrder(order).then( id => {
+        // cre7ateOrder(order).then( id => {
         //     navigate(`/thank-you/${id}`)
         // } )
         async function sendOrder() {
@@ -83,8 +83,8 @@ function CartContainer() {
                                     <td>{itemInCart.title}</td>
                                     <td>{itemInCart.price}</td>
                                     <td>{itemInCart.count}</td>
-                                    <td><Button onClick={ () => removeItem(itemInCart)} color="red">x</Button></td>
-                                    <td> $ --</td>
+                                    <td><Button onClick={removeItem} color="red">x</Button></td>
+                                    <td>${getTotalPriceCant()}</td>
                                 </tr>
                             ))}
                             </tbody>

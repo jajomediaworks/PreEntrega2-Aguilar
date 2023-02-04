@@ -10,7 +10,7 @@ import "./cart-container.css"
 function CartContainer() {
     const [orderId, setOrderId] = useState();
 
-    const {cart, removeItem, getTotalPriceInCart,getTotalPriceCant } = useCartContext();   
+    const {cart, removeItem, getTotalPriceInCart, getTotalCant } = useCartContext();   
     // const navigate = useNavigate();
 
     function handleCheckout(event, userData) {
@@ -78,20 +78,21 @@ function CartContainer() {
                             </thead>
                             <tbody>
                             {cart.map((itemInCart) => (
-                                <tr>
+                                <tr key={itemInCart.id}>
                                     <td><img width={100} src={itemInCart.imgurl} alt={itemInCart.title} /></td>
                                     <td>{itemInCart.title}</td>
                                     <td>{itemInCart.price}</td>
                                     <td>{itemInCart.count}</td>
-                                    <td><Button onClick={removeItem} color="red">x</Button></td>
-                                    <td>${getTotalPriceCant()}</td>
+                                    <td><Button onClick={ () => removeItem(itemInCart.id)} color="red">x</Button></td>
+                                    {/* <td><Button onClick={removeItem} >x</Button></td> */}
+                                    <td>${getTotalCant()}</td>
                                 </tr>
                             ))}
                             </tbody>
                         </table>  
                                 <p>El total de tu compra es de: ${getTotalPriceInCart()}</p>
                                 <Button>Vaciar Carrito</Button>
-                                <FormCheckout onCheckout={handleCheckout} />
+                                <FormCheckout  onCheckout={handleCheckout} />
                 </div>
                 
                 </div>        

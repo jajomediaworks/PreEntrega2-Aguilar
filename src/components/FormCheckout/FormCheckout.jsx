@@ -47,7 +47,7 @@ function InputForm(props) {
         <h1>Llena tus datos para finalizar la compra 🛍</h1>
   
     {fieldsForm.map((field) => (
-        <InputForm value={userData[field]} name={field} onChange={onInputChange} label={field} userData={userData} />
+        <InputForm  value={userData[field]}   name={field} onChange={onInputChange} label={field} userData={userData} />
       ))}
          {/* <Button onClick={props.handleCheckout}>Finalizar Compra</Button> */}
         <button className="btn" onClick={ (event) => props.onCheckout(event, userData)} disabled={formIsInvalid()} type="submit">

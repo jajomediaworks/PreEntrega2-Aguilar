@@ -41,7 +41,13 @@ function addToCart(item) {
         //
     }
 */
-    function getTotalPriceCant(items) {
+    function getTotalCant(items) {
+        let totalPrice = 0;
+        cart.forEach(product => {
+            totalPrice += ( product.count * product.price)
+        })
+
+        return totalPrice
             // let totalPriceCantCart = cart.reduce((acc, product) => acc + product.count * product.price, 0);
             // return totalPriceCantCart;
     }
@@ -63,20 +69,15 @@ function addToCart(item) {
     }
 
      function removeItem(itemid) {
-
-        let index = cart.findIndex((idItem) => idItem.id === itemid);
-        cart.splice(index, -1)
-        return console.log(index, "-----preuba")
-        // splice + findIndex
-/*         let removed = cart.find( (prod) => prod.id === itemid)
-        let removeItemCard = cart.indexOf(removed);
-        cart.splice(removeItemCard, 0)
-        return console.log(removeItemCard, "-------");  */
+            let cartDelete = [...cart]
+            cartDelete = cart.filter(product => product.id !== itemid.id)
+            setCart(cartDelete)
       } 
+
  
     
     return(
-        <cartContext.Provider value={ { cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart,  removeItem, getTotalPriceCant} }>
+        <cartContext.Provider value={ { cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart,  removeItem, getTotalCant} }>
             {props.children}
         </cartContext.Provider>
     );

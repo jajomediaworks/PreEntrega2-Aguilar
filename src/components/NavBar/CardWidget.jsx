@@ -7,7 +7,7 @@ function CardWidget(){
     return(
         <>
         <img width={20} src="/img/cart.svg" alt="Carrito" />
-        { context.getTotalItemsInCart()  > 0 ? <span className="cart-icon">{ context.getTotalItemsInCart() }</span> : null }
+        <div className="countCart">{ context.getTotalItemsInCart()  > 0 ? <span><b>{ context.getTotalItemsInCart() }</b></span> : null }</div> 
         {/* // Utilizar codicional ternario */}
         </>
     )

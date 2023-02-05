@@ -1,23 +1,20 @@
-import React, { useContext } from "react";
 
 import CardWidget from "./CardWidget"
 import NavItem from "./NavItem";
 import { Link } from "react-router-dom";
 import "./navbar.css"
-import Button from "../Button/Button";
-import { cartContext } from "../../storage/cartContext";
+// import Button from "../Button/Button";
 
 // Video o1:28
 function navBar(props) {
-    const context = useContext( cartContext );
-   context.test();
 
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        let user = event.target.elements[0].value;
-        props.onLogin(user)
-    }
+
+    // function handleSubmit(event) {
+    //     event.preventDefault();
+    //     let user = event.target.elements[0].value;
+    //     props.onLogin(user)
+    // }
     return( 
             <header>
                 <nav className="navbar">
@@ -30,11 +27,11 @@ function navBar(props) {
                         <Link to="/category/Cabeza" className="nav-link">Cabeza</Link>
                         <Link to="/cart" className="nav-item"><CardWidget /></Link>
 
-                        <Button onClick={props.onLogout}>Log Out</Button> 
+                        {/* <Button onClick={props.onLogout}>Log Out</Button> 
                         <form onSubmit={handleSubmit} action="">
                             Iniciar sesión
                             <input name="user" type="text" />
-                        </form>
+                        </form> */}
                     </ul>
                 </nav>
             </header>

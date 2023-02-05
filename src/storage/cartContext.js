@@ -55,12 +55,12 @@ function addToCart(item) {
         // reduce 👌
         
 
-        let total = 5;
+        let total = 0;
         // por Cada producto(for, forEach) -> total += producto.count
-        cart.forEach(element => {
-            
+        cart.forEach(prod => {
+            total += prod.count
         });
-        return cart.length;
+        return total;
     } 
 
     function getTotalPriceInCart() {
@@ -68,16 +68,22 @@ function addToCart(item) {
         return totalItemCart;
     }
 
-     function removeItem(itemid) {
+     function removeItem(id) {
             let cartDelete = [...cart]
-            cartDelete = cart.filter(product => product.id !== itemid.id)
+            cartDelete = cartDelete.filter(product => product.id !== id)
             setCart(cartDelete)
       } 
+
+      function clearCart() {
+        let cartToDelete = [...cart]
+        cartToDelete.length = 0
+        setCart(cartToDelete)
+      }
 
  
     
     return(
-        <cartContext.Provider value={ { cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart,  removeItem, getTotalCant} }>
+        <cartContext.Provider value={ { cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart,  removeItem, getTotalCant, clearCart} }>
             {props.children}
         </cartContext.Provider>
     );

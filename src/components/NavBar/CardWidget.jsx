@@ -3,12 +3,12 @@ import { cartContext } from "../../storage/cartContext";
 import "./navbar.css";
 
 function CardWidget(){
-    const contexto = useContext(cartContext);
+    const context = useContext(cartContext);
 
     return(
         <>
         <img width={20} src="/img/cart.svg" alt="Carrito" />
-        <span className="cart-icon">{ contexto.getTotalItemsInCart() }</span>
+        { context.getTotalItemsInCart()  > 0 ? <span className="cart-icon">{ context.getTotalItemsInCart() }</span> : null }
         {/* // Utilizar codicional ternario */}
         </>
     )

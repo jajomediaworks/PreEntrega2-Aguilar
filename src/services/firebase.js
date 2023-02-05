@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, getDoc, doc, where, query, addDoc, orderBy } from "firebase/firestore"; // Conectarnos a la base de datos
+
 // Colletion: hacemos un llamado a la collettion o referencia en firebase
 // getDosc: llamado a los products  o productos de nuestra colletion en firebase
 const firebaseConfig = {
@@ -73,6 +74,7 @@ export async function getProductByCategory(categoryUrl) {
 ////////////////// O R D E R ////////////////////////
 
 export async function createOrder (order){
+
   const orderRef = collection(databasefire, "order")
 
   let respuesta = await addDoc(orderRef, order);

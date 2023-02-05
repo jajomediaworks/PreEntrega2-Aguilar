@@ -16,12 +16,9 @@ function UserProvider(props) {
 
     return (
 
-        //3. eL PROVIDER DEL COTEXT CON value personalizado
-        // Basicamente con {props.children} es el componente padre y los children es todo aquello que este dentro de <UserProvider> en App.js
-        <userContext.Provider value={ { user, logedin, test } }>
-            {/* 4. Renderizamos los children */}
-            {props.children} 
 
+        <userContext.Provider value={ { user, logedin, test } }>
+            {props.children} 
         </userContext.Provider>
     )
 }

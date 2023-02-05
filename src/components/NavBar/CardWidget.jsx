@@ -1,6 +1,5 @@
 import React, {  useContext } from "react";
 import { cartContext } from "../../storage/cartContext";
-import "./navbar.css";
 
 function CardWidget(){
     const context = useContext(cartContext);

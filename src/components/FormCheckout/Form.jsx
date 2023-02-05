@@ -37,9 +37,9 @@ function Form() {
       
         if (orderId)
           return (
-            <div>
+            <div className="text-center">
               <h1>Gracias por tu compra</h1>
-              <p>El id de tu compra {orderId}</p>
+              <p className="mt-5">El id de tu compra <b className="text-warning">{orderId}</b></p>
             </div>
           );
 

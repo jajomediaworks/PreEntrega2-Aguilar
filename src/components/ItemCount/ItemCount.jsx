@@ -12,25 +12,15 @@ function ItemCount({ onAddToCart }) {
     function handleSubs() {
         setCount( count -1 )
     }
-
-    const styleCount = {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        margin: "0 auto",
-        padding: "6px",
-        width: "40%",
-        border: "1px solid #000",
-    }
     return(
         <>
-            <div style={styleCount}>
-                <Button disabled={ count === 0 } onClick={ handleSubs }  className="btn-count">-</Button>
-                    <p>{count}</p>
+            <div className="d-flex justify-content-center align-items-center my-4">
+                <Button disabled={ count === 0 } onClick={ handleSubs }  className="btn btn-warning">-</Button>
+                    <p className="mx-4">{count}</p>
                 <Button  onClick={ handleAdd } className="btn-count">+</Button>
             </div>
-            <div className="item-count-cart">
-                <Button onClick={()=> onAddToCart(count)} className="btn">Agregar al carrito</Button>
+            <div className="item-count-cart mb-4">
+                <Button onClick={()=> onAddToCart(count)} >Agregar al carrito</Button>
             </div>
         </>
     )

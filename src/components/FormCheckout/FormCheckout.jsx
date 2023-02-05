@@ -6,24 +6,26 @@ import React, { useState } from "react";
 function InputForm(props) {
   
   return (
-    <div style={{ display: "flex", marginBottom: 8 }}>
-        <label style={{ width: "100px", marginRight: 4 }}>{props.label}</label>
-        <input
+
+    <div className="col-md-12 col-lg-4">
+        <label className="form-label" >{props.label}</label>
+        <input className="form-control"
           value={props.value}
           name={props.name}
           type="text"
           onChange={props.onChange}
           />
-      </div>
+    </div>
+
     );
   }
   
   export default function FormCheckout(props) {
 
     const [userData, setUserData] = useState({
-      name: "",
-      phone: "",
-      email: "",
+      Name: "",
+      Phone: "",
+      Email: "",
     });
     
     let fieldsForm = Object.keys(userData);
@@ -49,19 +51,26 @@ function InputForm(props) {
     }
   
     return (
+      <div className="container">
+        <div className="row">
+          <h2 className="text-center mb-5">Llena tus datos para finalizar la compra</h2>
+          {fieldsForm.map((field) => (
+              <InputForm  value={userData[field]}   name={field} onChange={onInputChange} label={field} userData={userData} />
+            ))}
+        </div>
       <form onSubmit={onSubmit}>
-        <h1>Llena tus datos para finalizar la compra 🛍</h1>
   
-    {fieldsForm.map((field) => (
-        <InputForm  value={userData[field]}   name={field} onChange={onInputChange} label={field} userData={userData} />
-      ))}
-         {/* <Button onClick={props.handleCheckout}>Finalizar Compra</Button> */}
-        <button className="btn" onClick={ (event) => props.onCheckout(event, userData)} disabled={formIsInvalid()} type="submit">
-          Crear orden
-        </button>
-        <button onClick={() => setUserData({ name: "", email: "", phone: "" })}>
-          Limpiar
-        </button>
+        <div className="text-center p-3 mt-3">
+          
+            {/* <Button onClick={props.handleCheckout}>Finalizar Compra</Button> */}
+            <button className="btn-edit me-4" onClick={ (event) => props.onCheckout(event, userData)} disabled={formIsInvalid()} type="submit">
+              Crear orden
+            </button>
+            <button className="btn-edit" onClick={() => setUserData({ name: "", email: "", phone: "" })}>
+              Limpiar
+            </button>
+        </div>
       </form>
+      </div>
     );
   }

@@ -1,31 +1,38 @@
-import "./card.css";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom"
-// import ItemCount from "./ItemCount";
 
 function Item (props) {
 
     const { id, imgurl, title, stock, price, category, discount, } = props.product
 
-    return ( // Buena practica el return con parentisis - no se puede retornar 2 elementos, solo puedo tener un padre
-    // <> Fragmento o etiqueta vacia para agrupar elementos para que ebn el html no haya div innecesarios
+    return ( 
         <> 
-            <div className="card-product">
-                <p>{ title }</p>
-                <img width={300}   src={imgurl} alt={title} />
-                <h3>$ { price }</h3>
-                {
-                    discount ? <span>{discount} %OFF</span> : ""
-                }
-                <div>Cantidad disponible { stock }</div>
-                {/* Rendering condicional con operador AND && */}
-                { stock <=2 && <small>Últimos disponibles</small> } <br />
-                <small> SKU { id }</small>
-                <span>Categoria: { category }</span>
-                <Link to={`/detalle/${id}`}><Button padding=".75rem">Ver más</Button></Link> 
+            <div className="col-md-4">
+                <div className="box-body">
+                        <div className="card mb-3">
+                                <img className="card-img-top" width={300}   src={imgurl} alt={title} />
+                                <div className="card-body d-flex flex-column">
+                                    <h5 className="card-title">{ title }</h5>
+                                    <p className="my-3">$ { price }
+                                        {
+                                            discount ? <span>{discount} <small className="text-warning">%OFF</small> </span> : ""
+                                        }
+                                    </p>
+                                    <div className="d-flex mb-3">
+                                       <small className="me-2">Cantidad disponible { stock }</small>  <div> { stock <=2 && <small className="badge text-bg-dark">Últimos disponibles</small> } </div>
+                                    </div>
+                                     {/* Rendering condicional con operador AND && */}
+                                    
+                                    <small> SKU { id }</small> 
+                                    <small>Categoria: <b>{ category }</b></small> 
+                                    <hr />
+                                    <Link to={`/detalle/${id}`}><Button className="btn-edit boton-agregar ">Ver Producto</Button></Link> 
+                                </div>
+                        </div>
+                </div> 
             </div>
         </>
     );
 }
 
-export default Item; // Todo componente debe importarse y exportarse
+export default Item; 

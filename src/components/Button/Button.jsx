@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./button.css" // Al importar el css siempre con la extension .css
 
 function Button (props) {
-    const [colorState, setColorState ] = useState("black") // Esta es una funcio que modifica la variable let styleButton - ("orange") El valor por defecto del estado
+    const [colorState ] = useState() // Esta es una funcio que modifica la variable let styleButton - ("orange") El valor por defecto del estado
 
     // Aplicar estilos alos botones mendiate props
     let styleButton = {
@@ -12,7 +12,7 @@ function Button (props) {
 
 
     return (
-        <button onClick={props.onClick}   style={styleButton} className="btn">{ props.children } </button>
+        <button onClick={props.onClick}   style={styleButton} className="btn-edit">{ props.children } </button>
     )
 }
 

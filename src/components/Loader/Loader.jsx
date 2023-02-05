@@ -6,9 +6,9 @@ import { Pulsar } from '@uiball/loaders'
 function Loader() {
     // https://uiball.com/loaders/
     return <Pulsar 
-    size={40}
+    size={90}
     speed={1.75} 
-    color="black" 
+    color="orange" 
    />
     
 }

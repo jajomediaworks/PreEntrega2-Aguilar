@@ -36,40 +36,32 @@ function ItemListContainer(props) {
           .finally( () => setLoading(false))
 
       }
-        //return ( ()=> console.log("Desmontamos el Item") )  Desmonto el componente
-    }, [categoryid]); // Ya que el componenete se renderiza una sola vez necesitamos pegarlo a la variable para que pueda renderizarse cada vez que accedo a la categoria
+    }, [categoryid]); 
     
-    // 2. return con if ternario / early return
+
     if (isLoading) {
-        return <Loader color="orange" />
+        return <div className="d-flex justify-content-center"><Loader color="orange" /></div> 
     } else{
       return(
         <>
         { alertText && <div className={`alert alert-${alertText.type}`}>{alertText.text}</div> }
-        <div className="card-products">
-            { barber.map( (itemIterado)=> {
-                    return <Item key={itemIterado.id} product={itemIterado} />
-            } ) }
+        <div className="container mb-big">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="text-center mb-big">
+                  <h1>PRODUCTOS</h1>
+                </div>
+                <div className="row">
+                        { barber.map( (itemIterado)=> {
+                            return <Item key={itemIterado.id} product={itemIterado} />
+                        })}
+                </div>
+              </div>
+            </div>
         </div>
       </> 
       )
     }
-    // 1. Operador ternario
-/*     return(
-        <>
-            { isLoading ? (
-                <h3>Cargando...</h3>
-            ):(
-              <div className="card-products">
-                  { barber.map( (itemIterado)=> {
-                          return <Item key={itemIterado.id} product={itemIterado} />
-                  } ) }
-              </div>
-            )
-          } 
-                
-        </>
-    ) */
 }
 
 export default ItemListContainer;  

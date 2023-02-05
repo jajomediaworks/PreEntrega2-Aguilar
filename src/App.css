@@ -11,7 +11,7 @@ body {
     h1,h2,h3,h4,h5,h6{font-family: 'Abril Fatface', cursive; color: var(--primary-yellow);}
     @media (min-width: 1200px){
     h1, h1 {font-size: 3.5rem;}}
-    a {text-decoration: none;}
+    a {text-decoration: none; color: currentColor;}
     :root {
       --primary:#101010;
       /* --primary:#161616; */
@@ -78,6 +78,7 @@ body {
         display: inline-block;
         text-decoration: none;
         transition: all .2s linear;
+        margin: 0 .75rem;
       }
       .btn-edit:hover {
         color: var(--primary-yellow);
@@ -157,3 +158,10 @@ body {
       .table-cart tbody td{border-bottom: 1px solid #2e2e2e;}
 
       .form-control{padding: 1rem; background-color: var(--primary); border: 1px solid #D58E02; color: #ffc107;}
+      .form-control:focus {
+        background-color: #1e1e1e;
+        border-color: #ffe084;
+        box-shadow: 0 0 0 .25rem rgba(255,224,132,.25);
+        color: #d58e02;
+        outline: 0;
+      }

@@ -43,7 +43,8 @@ function CartContainer() {
                             <div>
                                 <p>El total de tu compra es de: ${getTotalPriceInCart()}</p>
                                 <Button onClick={clearCart}>Vaciar Carrito</Button>
-                                <Button className="ms-4"><Link to="/form">Finalizar la compra</Link></Button>
+                                <Button className="mt-4"><Link to="/form">Finalizar la compra</Link></Button>
+                                
 
                             </div>
                         </div>

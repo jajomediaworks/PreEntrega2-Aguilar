@@ -1,12 +1,18 @@
 # Entrega Final Curso React
-
+<h3>
+  🚀 Principal Stack
+</h3> 
+<p>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
+</p>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Instalación de create-react-app
 
 En el directorio del proyecto, ejecutar en consola:
 ### `npx create-react-app my-app`
-Ejecutar:
+
+Ejecutar el comando:
 ### `npm start`
 
 Ejecutamos la aplicación en modo desarrollo.\

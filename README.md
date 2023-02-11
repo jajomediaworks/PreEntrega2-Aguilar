@@ -1,15 +1,16 @@
-# Segunda Entrega Curso React
+# Entrega Final Curso React
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Instalación de create-react-app
 
-In the project directory, you can run:
-
+En el directorio del proyecto, ejecutar en consola:
+### `npx create-react-app my-app`
+Ejecutar:
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ejecutamos la aplicación en modo desarrollo.\
+Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.

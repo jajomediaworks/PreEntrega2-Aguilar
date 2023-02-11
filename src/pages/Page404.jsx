@@ -10,8 +10,12 @@ function Page404() {
 
     return (
         <>
-        <div>Pagina no encontrada 404</div>
-        <small>Te estamos redirigiendo a la homepage</small>
+        <div className="d-flex justify-content-center align-items-center">
+                <div className="card">
+                    <div>Pagina no encontrada 404</div>
+                    <small>Te estamos redirigiendo a la homepage</small>
+                </div>
+        </div>
         </>
     )
 }

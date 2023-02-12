@@ -15,7 +15,7 @@ function Item (props) {
                                     <h5 className="card-title">{ title }</h5>
                                     <p className="my-3">$ { price }
                                         {
-                                            discount ? <span>{discount} <small className="text-warning">%OFF</small> </span> : ""
+                                            discount ? <small className="ms-3 text-warning">{discount} %OFF </small> : ""
                                         }
                                     </p>
                                     <div className="d-flex mb-3">
